@@ -1,0 +1,184 @@
+ date: 20/07/26 SQL*Plus: Release 11.2.0.1.0 Production on Mon Jul 20 10:39:18 2026
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+Enter user-name: A227@db2021
+Enter password:
+
+Connected to:
+Oracle Database 11g Release 11.2.0.1.0 - Production
+
+SQL> create table student
+  2  (
+  3  register_number varchar2(20),
+  4  student_name char(20),
+  5  date_of_both number(2),
+  6  address varchar,
+  7  couse_name char,
+  8  dept_name char,
+  9  year number
+ 10  );
+address varchar,
+               *
+ERROR at line 6:
+ORA-00906: missing left parenthesis
+
+
+SQL> create table student
+  2  (
+  3  register_number varchar2(20),
+  4  student_name char(20),
+  5  date_of_both number,
+  6  address char,
+  7  couse_name char,
+  8  dept_name char,
+  9  year number
+ 10  );
+
+Table created.
+
+SQL> desc student
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGISTER_NUMBER                                    VARCHAR2(20)
+ STUDENT_NAME                                       CHAR(20)
+ DATE_OF_BOTH                                       NUMBER
+ ADDRESS                                            CHAR(1)
+ COUSE_NAME                                         CHAR(1)
+ DEPT_NAME                                          CHAR(1)
+ YEAR                                               NUMBER
+
+SQL> create table student as select * from student;
+create table student as select * from student
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> create table student1 as select * from student;
+
+Table created.
+
+SQL> desc student1
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGISTER_NUMBER                                    VARCHAR2(20)
+ STUDENT_NAME                                       CHAR(20)
+ DATE_OF_BOTH                                       NUMBER
+ ADDRESS                                            CHAR(1)
+ COUSE_NAME                                         CHAR(1)
+ DEPT_NAME                                          CHAR(1)
+ YEAR                                               NUMBER
+
+SQL> select * from tob;
+select * from tob
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+STUDENT1                       TABLE
+STUDENT                        TABLE
+EMPLOYEE6                      TABLE
+EMPLOYEE5                      TABLE
+EMPLOYEE2                      TABLE
+EMPLOYEE                       TABLE
+BIN$m28FGBpMTbmTnUMJyCerxg==$0 TABLE
+
+7 rows selected.
+
+SQL> cerate table student2 as select student_name,register_number,dob,dept form student;
+SP2-0734: unknown command beginning "cerate tab..." - rest of line ignored.
+SQL> insert into student values(
+  2
+SQL> create table student2 as select student_name,register_number,dob,depy form student;
+create table student2 as select student_name,register_number,dob,depy form student
+                                                                           *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> create table student2 as select student_name,register_number,dob,dept form student;
+create table student2 as select student_name,register_number,dob,dept form student
+                                                                           *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> create table student2 as select student_name,register_number,dob,dept from student;
+create table student2 as select student_name,register_number,dob,dept from student
+                                                                 *
+ERROR at line 1:
+ORA-00904: "DEPT": invalid identifier
+
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGISTER_NUMBER                                    VARCHAR2(20)
+ STUDENT_NAME                                       CHAR(20)
+ DATE_OF_BOTH                                       NUMBER
+ ADDRESS                                            CHAR(1)
+ COUSE_NAME                                         CHAR(1)
+ DEPT_NAME                                          CHAR(1)
+ YEAR                                               NUMBER
+
+SQL> create table student2 as select student_name,register_number,date_of_both,dept_name from student;
+
+Table created.
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+STUDENT2                       TABLE
+STUDENT1                       TABLE
+STUDENT                        TABLE
+EMPLOYEE6                      TABLE
+EMPLOYEE5                      TABLE
+EMPLOYEE2                      TABLE
+EMPLOYEE                       TABLE
+BIN$m28FGBpMTbmTnUMJyCerxg==$0 TABLE
+
+8 rows selected.
+
+SQL> drop table student2;
+
+Table dropped.
+
+SQL> select * from tab;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+STUDENT1                       TABLE
+STUDENT                        TABLE
+EMPLOYEE6                      TABLE
+EMPLOYEE5                      TABLE
+EMPLOYEE2                      TABLE
+EMPLOYEE                       TABLE
+BIN$m28FGBpMTbmTnUMJyCerxg==$0 TABLE
+BIN$/LKCKgUsTHiFSAk99T1Hkg==$0 TABLE
+
+8 rows selected.
+
+SQL> alter table student add state varchar2(10);
+
+Table altered.
+
+SQL> desc student
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGISTER_NUMBER                                    VARCHAR2(20)
+ STUDENT_NAME                                       CHAR(20)
+ DATE_OF_BOTH                                       NUMBER
+ ADDRESS                                            CHAR(1)
+ COUSE_NAME                                         CHAR(1)
+ DEPT_NAME                                          CHAR(1)
+ YEAR                                               NUMBER
+ STATE                                              VARCHAR2(10)
+
+SQL>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
